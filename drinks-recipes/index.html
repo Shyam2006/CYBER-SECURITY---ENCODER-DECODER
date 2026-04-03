@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sip & Savor — Cocktails & Mocktails</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo">Sip <span>&amp;</span> Savor</a>
+      <ul class="nav-links">
+        <li><a href="#recipes">Recipes</a></li>
+        <li><a href="#cocktails">Cocktails</a></li>
+        <li><a href="#mocktails">Mocktails</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <ul class="mobile-menu" id="mobileMenu">
+      <li><a href="#recipes" onclick="closeMobileMenu()">Recipes</a></li>
+      <li><a href="#cocktails" onclick="closeMobileMenu()">Cocktails</a></li>
+      <li><a href="#mocktails" onclick="closeMobileMenu()">Mocktails</a></li>
+      <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Handcrafted Drinks for Every Occasion</p>
+      <h1>Cocktails &amp;<br/>Mocktails</h1>
+      <p class="hero-sub">Explore curated recipes — from bold spirits to refreshing alcohol-free creations. Shake, stir, and sip.</p>
+      <div class="hero-cta">
+        <a href="#recipes" class="btn btn-primary">Browse Recipes</a>
+        <a href="#mocktails" class="btn btn-ghost">Try Mocktails</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll to explore</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </header>
+
+  <!-- ===== FILTER BAR ===== -->
+  <section class="filter-bar" id="recipes">
+    <div class="container">
+      <h2 class="section-title">All Recipes</h2>
+      <p class="section-sub">Filter by category or browse the full collection.</p>
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All Drinks</button>
+        <button class="filter-btn" data-filter="cocktail">🍹 Cocktails</button>
+        <button class="filter-btn" data-filter="mocktail">🥤 Mocktails</button>
+        <button class="filter-btn" data-filter="tropical">🌴 Tropical</button>
+        <button class="filter-btn" data-filter="classic">🎩 Classic</button>
+        <button class="filter-btn" data-filter="dessert">🍫 Dessert</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RECIPE GRID ===== -->
+  <section class="recipe-section">
+    <div class="container">
+      <div class="recipe-grid" id="recipeGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about-section" id="about">
+    <div class="container about-inner">
+      <div class="about-text">
+        <p class="eyebrow">Why Sip &amp; Savor?</p>
+        <h2>Drinks for Everyone</h2>
+        <p>Whether you're hosting a dinner party, enjoying a quiet evening, or simply craving something delicious — our recipes cover every mood and occasion. Each recipe is crafted with care, using accessible ingredients and clear steps.</p>
+        <ul class="about-list">
+          <li><span class="icon">✦</span> Classic &amp; modern cocktails</li>
+          <li><span class="icon">✦</span> Refreshing alcohol-free mocktails</li>
+          <li><span class="icon">✦</span> Tropical, dessert, and seasonal specials</li>
+          <li><span class="icon">✦</span> Step-by-step instructions for every skill level</li>
+        </ul>
+      </div>
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600&q=80" alt="Colorful cocktails on a bar" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo">Sip <span>&amp;</span> Savor</span>
+        <p>Handcrafted recipes for every occasion.<br/>Drink responsibly. 21+ for alcoholic beverages.</p>
+      </div>
+      <div class="footer-links">
+        <strong>Explore</strong>
+        <a href="#recipes">All Recipes</a>
+        <a href="#cocktails">Cocktails</a>
+        <a href="#mocktails">Mocktails</a>
+      </div>
+      <div class="footer-links">
+        <strong>Categories</strong>
+        <a href="#">Tropical</a>
+        <a href="#">Classic</a>
+        <a href="#">Dessert</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Sip &amp; Savor. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===== RECIPE MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal" id="modal" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div class="modal-img-wrap">
+        <img id="modalImg" src="" alt="" />
+        <span class="modal-badge" id="modalBadge"></span>
+      </div>
+      <div class="modal-body">
+        <p class="modal-category" id="modalCategory"></p>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDesc"></p>
+        <div class="modal-meta">
+          <div><strong id="modalDiff"></strong><span>Difficulty</span></div>
+          <div><strong id="modalTime"></strong><span>Prep Time</span></div>
+          <div><strong id="modalServes"></strong><span>Servings</span></div>
+        </div>
+        <div class="modal-section">
+          <h3>Ingredients</h3>
+          <ul id="modalIngredients"></ul>
+        </div>
+        <div class="modal-section">
+          <h3>Instructions</h3>
+          <ol id="modalInstructions"></ol>
+        </div>
+        <div class="modal-tip" id="modalTipWrap">
+          <strong>Pro Tip:</strong> <span id="modalTip"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="recipes.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
